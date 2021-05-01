@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Msg Whatsapp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap" rel="stylesheet">
+
+    <style>
+         html,
+            body {
+                overflow-x: hidden;
+                margin-bottom: 0;              
+            }
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .coreDiv {
+            text-align: center;
+        }
+
+        #btnSendMsg {
+            margin-top: 2rem;
+        }
+
+        .container {
+            position: relative;
+            background-color: #fff;
+            height: 80vh;
+        }
+
+        .myDiv {
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            padding: 5px;
+            text-align: center;
+        }
+
+        .myDiv p {
+            font-size: 2rem;
+            color: black;
+            font-weight: 400;
+        }
+
+        #headerDiv {
+            background-color: #1ebea5;
+            /* max-height: 20px; */
+            height: 10vh;
+
+        }
+
+        #btnSendMsg {
+            background-color: #01e675;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #footerDiv {
+            background-color: #273443;
+            height: 10vh;
+            margin-bottom: 0;  
+            display: flex;
+            align-items: center;
+            flex-direction: column;  
+            justify-content: center;       
+        }
+
+        .logoDiv {
+            text-align: center;
+            font-weight: bold;
+            font-size: 5rem;
+        }
+
+        .logoDiv a {
+            color: #fff;
+            text-decoration: none;
+        }
+        #footerDiv p{
+            color: #fff;
+        }
+        .llc{
+            opacity: 0.2;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="headerDiv">
+        <!-- <div class="logoDiv">
+            <a href="#">Whatsapp</a>
+        </div> -->
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="myDiv">
+                <p class="errorReport" style="display: none; color: rgb(179, 10, 44); font-weight: 800; font-size: medium;"></p>
+                <p>Chat without having to save number</p>
+                <div class="row coreDiv">
+                    <div id="inputDiv"
+                        class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 input-group input-group-lg">
+                        <span class="input-group-addon">254</span>
+                        <input class="form-control" type="phone" id="phoneNum" maxlength="15"
+                            placeholder="eg. 700 000 000">
+                    </div>
+                    <button id="btnSendMsg" type="button" class="btn btn-default btn-lg">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footerDiv">
+        <p>&copy;<span id="year"></span> By <span class="llc">&copy;ShadiihDesigns</span></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script>
+        $("#btnSendMsg").click(function () {
+            var phoneNum = $("#phoneNum").val();
+
+            while(phoneNum[0] == 0) phoneNum = phoneNum.substring(1);
+            console.log(phoneNum)
+            if(phoneNum.length < 9) {
+                $(".errorReport").text("Oops! Enter valid number.")
+                $(".errorReport").show();
+                console.log("Name must be at least 9 digits " +phoneNum[0]);
+                return;
+            }
+            if($(".errorReport").is(":visible")) $(".errorReport").hide();
+            var url = "https://api.whatsapp.com/send?phone=254" + phoneNum;
+            window.open(url, '_blank')
+        });
+        $("#year").text(new Date().getFullYear())
+    </script>
+</body>
+
+</html>
