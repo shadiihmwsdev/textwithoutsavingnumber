@@ -155,6 +155,16 @@
             window.open(url, '_blank')
         });
         $("#year").text(new Date().getFullYear())
+
+        $(function(){
+            
+            var bodyH = $(window).height();
+            var navH = $('nav').height();
+            var footerH = $('footer').height();
+            var mainH = (bodyH -(navH +footerH)) +'px';
+            debugger;
+            $(main).css('height',mainH);
+        });
     </script>
 </body>
 
