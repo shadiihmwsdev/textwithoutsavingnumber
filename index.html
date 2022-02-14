@@ -17,7 +17,8 @@
          html,
             body {
                 overflow-x: hidden;
-                margin-bottom: 0;              
+                margin-bottom: 0;     
+                height: 100vh;         
             }
         body {
             background-color: #f8f9fa;
@@ -31,7 +32,7 @@
         .container {
             position: relative;
             background-color: #fff;
-            height: 80vh;
+            height: Calc(100vh - (10vh + 10vh));
         }
 
         .myDiv {
@@ -89,9 +90,8 @@
         .llc{
             opacity: 0.35;
         }
-        main{
-            height: 100%;
-            min-height: Calc(100vh - (10vh + 10vh));           
+        main{           
+            min-height: Calc(100vh - 200vh);           
         }
         .fa-whatsapp{
             color:#128c7e;
