@@ -18,7 +18,7 @@
             body {
                 overflow-x: hidden;
                 margin-bottom: 0;     
-                height: 100vh;         
+                min-height: 100vh;         
             }
         body {
             background-color: #f8f9fa;
@@ -32,7 +32,7 @@
         .container {
             position: relative;
             background-color: #fff;
-            height: Calc(100vh - 10vh);
+            height: Calc(100vh - 20vh);
         }
 
         .myDiv {
@@ -52,7 +52,7 @@
         #headerDiv {
             background-color: #128c7e;
             /* max-height: 20px; */
-            height: 5vh;
+            min-height: 10vh;
 
         }
 
@@ -66,7 +66,7 @@
         #footerDiv {
             /* background-color: #273443; */
             background-image: url('whatsapp1.jpg');
-            height: 5vh;
+            min-height: 10vh;
             margin-bottom: 0;  
             display: flex;
             align-items: center;
@@ -91,7 +91,7 @@
             opacity: 0.35;
         }
         main{           
-            min-height: Calc(100vh - 10vh);           
+            min-height: Calc(100vh - 20vh);           
         }
         .fa-whatsapp{
             color:#128c7e;
@@ -99,6 +99,11 @@
         @media screen and (max-width: 479px){
             .myDiv p{
                 font-size: 1.5rem;
+            }
+            html,
+            body {
+ 
+                max-height: 100vh;         
             }
         }
     </style>
@@ -155,16 +160,6 @@
             window.open(url, '_blank')
         });
         $("#year").text(new Date().getFullYear())
-
-        // $(function(){
-            
-        //     var bodyH = $(window).height();
-        //     var navH = $('nav').height();
-        //     var footerH = $('footer').height();
-        //     var mainH = (bodyH -(navH +footerH)) +'px';
-        //     debugger;
-        //     $(main).css('height',mainH);
-        // });
     </script>
 </body>
 
